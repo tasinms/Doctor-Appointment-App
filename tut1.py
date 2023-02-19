@@ -1,8 +1,16 @@
-import flask
+from flask import Flask
+
+app = Flask(__name__)
 
 
-def add(x, y):
-	return x + y
+@app.route("/")
+def hello():
+    return "<p>Hello, World!</p>"
 
 
-print(add(3, 4))
+@app.route("/tasin")
+def tasin():
+    return "<p>Hello, Tasin! How you doin!</p>"
+
+
+app.run(debug=True)
