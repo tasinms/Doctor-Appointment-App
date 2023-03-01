@@ -1,8 +1,17 @@
-print("Hello World")
+from flask import Flask, render_template
+
+app = Flask(__name__)
 
 
-def sub(x, y):
-	return x - y
+@app.route("/")
+def hello():
+    return render_template('index.html')
 
 
-print(sub(7, 4))
+# @app.route("/about")
+# def about():
+#     name = 'Tasin'
+#     return render_template('about.html', name_temp=name)
+
+
+app.run(debug=True)
