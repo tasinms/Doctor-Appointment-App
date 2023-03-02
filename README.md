@@ -4,7 +4,7 @@
 
 Doctor Appointment System
 
-#### Requirements & Features
+## Requirements & Features
 
 - User Account Management:
     * Create Account
