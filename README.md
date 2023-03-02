@@ -4,6 +4,12 @@
 
 Doctor Appointment System
 
+## Student Info
+
+Name: Tasin Mohammad
+ID: 20341021
+Section: 7
+
 ## Requirements & Features
 
 - User Account Management:
