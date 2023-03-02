@@ -1,6 +1,6 @@
 # CSE470 Project
 
-## Description
+## Project Title
 
 Doctor Appointment System
 
