@@ -2,7 +2,7 @@
 
 ## Project Title
 
-Doctor Appointment System
+Doctor Appointment App
 
 ## Student Info
 
