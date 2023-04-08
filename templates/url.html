@@ -52,6 +52,63 @@ assets\/img\/specialities\/specialities-0([0-9]).png
 
 
 
+"""Admin"""
+
+
+@app.route("/admin-register", methods=["GET", "POST"])
+def admin_register():
+    return render_template('admin-register.html')
+
+
+@app.route("/admin-login", methods=["GET", "POST"])
+def admin_login():
+
+    if 'user' in session and session['user'] == parameters['admin_username']:
+        return render_template('admin-dashboard.html')
+        pass
+
+    if request.method == "POST":
+
+        username = request.form.get('username')
+        password = request.form.get('password')
+
+        if username == parameters['admin_username'] and password == parameters['admin_password']:
+            # Set The Session Variable
+            session['user'] = username
+            return render_template('admin-dashboard.html')
+
+    else:
+        return render_template('admin-login.html')
+
+
+@app.route("/admin-dashboard", methods=["GET", "POST"])
+def admin_dashboard():
+    return render_template('admin-dashboard.html')
+
+
+@app.route("/admin-dashboard/appointment-list", methods=["GET", "POST"])
+def admin_dashboard_appointments():
+    return render_template('admin-appointment-list.html')
+
+
+@app.route("/admin-dashboard/doctor-list", methods=["GET", "POST"])
+def admin_dashboard_doctors():
+    return render_template('admin-doctor-list.html')
+
+
+@app.route("/admin-dashboard/patient-list", methods=["GET", "POST"])
+def admin_dashboard_patients():
+    return render_template('admin-patient-list.html')
+
+
+@app.route("/admin-dashboard/reviews-list", methods=["GET", "POST"])
+def admin_dashboard_reviews():
+    return render_template('admin-reviews-list.html')
+
+
+@app.route("/admin-dashboard/specialities-list", methods=["GET", "POST"])
+def admin_dashboard_specialities():
+    return render_template('admin-specialities-list.html')
 
 
 
