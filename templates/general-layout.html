@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- doccure/index.html  30 Nov 2019 04:12:03 GMT -->
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
     <title>Doccure</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0" />
 
     <!-- Favicons -->
     <link type="image/x-icon" href="{{ url_for('static', filename='assets/img/favicon.png') }}" rel="icon" />
@@ -29,8 +28,10 @@
 </head>
 
 <body>
+
     <!-- Main Wrapper -->
     <div class="main-wrapper">
+
         <!-- Header -->
         <header class="header">
             <nav class="navbar navbar-expand-lg header-nav">
@@ -165,7 +166,7 @@
                             </ul>
                         </li>
                         <li>
-                            <a href="admin/index.html" target="_blank">Admin</a>
+                            <a href="/admin-login" target="_blank">Admin</a>
                         </li>
                         <li class="login-link">
                             <a href="/login">Login / Signup</a>
@@ -379,6 +380,9 @@
 
     <!-- Slick JS -->
     <script src="{{ url_for('static', filename='assets/js/slick.js') }}"></script>
+    <script src="{{ url_for('static', filename='assets/plugins/theia-sticky-sidebar/ResizeSensor.js') }}"></script>
+    <script
+        src="{{ url_for('static', filename='assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js') }}"></script>
 
     <!-- Fancybox JS -->
     <script src="{{ url_for('static', filename='assets/plugins/fancybox/jquery.fancybox.min.js') }}"></script>

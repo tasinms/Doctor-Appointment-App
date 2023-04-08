@@ -1,4 +1,4 @@
-{% extends "layout.html" %} {% block body %}
+{% extends "general-layout.html" %} {% block body %}
 <!-- Page Content -->
 <div class="content">
     <div class="container-fluid">
@@ -15,13 +15,13 @@
                             <div class="login-header">
                                 <h3>Patient <span>Login</span></h3>
                             </div>
-                            <form action="https://dreamguys.co.in/demo/doccure/index.html">
+                            <form action="/login" method="post">
                                 <div class="form-group form-focus">
-                                    <input type="email" class="form-control floating" />
+                                    <input type="email" class="form-control floating" name="email" />
                                     <label class="focus-label">Email</label>
                                 </div>
                                 <div class="form-group form-focus">
-                                    <input type="password" class="form-control floating" />
+                                    <input type="password" class="form-control floating" name="password" />
                                     <label class="focus-label">Password</label>
                                 </div>
                                 <div class="text-right">

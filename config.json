@@ -2,6 +2,8 @@
     "parameters":{
         "local_server": "True",
         "local_uri": "mysql://root:@localhost/doccure",
-        "host_uri": "mysql://root:@localhost/doccure"
+        "host_uri": "mysql://root:@localhost/doccure",
+        "admin_username": "admin",
+        "admin_password": "password"
     }
 }

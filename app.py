@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 from flask_sqlalchemy import SQLAlchemy
 import json
 
@@ -15,6 +15,11 @@ else:
     app.config["SQLALCHEMY_DATABASE_URI"] = parameters['host_uri']
 
 db.init_app(app)
+
+app.secret_key = 'secretkey'
+
+
+"""Database"""
 
 
 class Patients(db.Model):
@@ -39,6 +44,9 @@ class Doctors(db.Model):
     slug = db.Column(db.String(30), unique=True, nullable=False)
 
 
+"""Patient"""
+
+
 @app.route("/")
 def home():
     doctors = Doctors.query.filter_by().all()
@@ -50,7 +58,7 @@ def register():
 
     if request.method == "POST":
 
-        # Fetch Variables From HTML File
+        # Fetch Variables From HTML File i.e. From Form Submission
         name = request.form.get("name")
         email = request.form.get("email")
         phone_number = request.form.get("phone_number")
@@ -64,15 +72,33 @@ def register():
     return render_template('register.html', parameters=parameters)
 
 
+@app.route("/login", methods=["GET", "POST"])
+def login():
+
+    return render_template('login.html', parameters=parameters)
+
+
+@app.route("/logout")
+def logout():
+
+    return  # something
+
+
+# @app.route("/dashboard")
+# def dashboard():
+    # email = session['email']
+    # patient = Patients.query.filter_by(email=email).first()
+
+    # return render_template('user-dashboard.html', patient=patient)
+
+
+"""Doctor"""
+
+
 @app.route("/doctor-profile/<string:doctor_profile_slug>", methods=['GET'])
 def doctor_profile(doctor_profile_slug):
     doctor = Doctors.query.filter_by(slug=doctor_profile_slug).first()
     return render_template('doctor-profile.html', parameters=parameters, doctor=doctor)
-
-
-@app.route("/login")
-def login():
-    return render_template('login.html', parameters=parameters)
 
 
 # @app.route("/about")
@@ -80,4 +106,6 @@ def login():
 #     name = 'Tasin'
 #     return render_template('about.html', name_temp=name)
 
-app.run(debug=True)
+
+if __name__ == '__main__':
+    app.run(debug=True)
